@@ -1,10 +1,11 @@
-from animal import Animal
+import json
 
+from animal import Animal
 
 class Zoo:
 
-    def __init__(self, animalsCollection, capacity, budget):
-        self.animalsCollection = animalsCollection
+    def __init__(self, capacity, budget):
+        self.animalsCollection = []
         self.capacity = capacity
         self.budget = budget
 

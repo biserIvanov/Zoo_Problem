@@ -9,7 +9,8 @@ class Zoo:
         self.budget = budget
 
     def see_animals(self):
-        pass
+        for animal in self.animalsCollection:
+            print(animal.name + " : " + animal.species + ", " + animal.age + ", " + animal.weight)
 
     def move_to_habitat(self, species, name):
         for animal in self.animalsCollection:
@@ -19,3 +20,6 @@ class Zoo:
     def accommodate(self, species, name, age, weight):
         self.new = Animal(species, age, name, weight)
         self.animalsCollection.append(self.new)
+
+    def simulate(interval_of_time, period):
+

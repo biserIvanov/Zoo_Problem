@@ -1,6 +1,8 @@
 import json
 
 from animal import Animal
+from main import load_settings
+
 
 
 class Zoo:
@@ -23,5 +25,29 @@ class Zoo:
         self.new = Animal(species, age, name, weight)
         self.animalsCollection.append(self.new)
 
-    def simulate(interval_of_time, period):
+    def dayly_incomes(self):
+        dayly = 0
+        for animal in self.animalsCollection:
+            dayly += 60
 
+    def dayly_outcomes(self):
+        outcomes = 0
+        foodType = ""
+        for animal in self.animalsCollection:
+            for animal_info in load_settings():
+                if animal_info['species'] == animal.species:
+                    foodType = animal_info['food_type']
+                    break
+            if foodType == "carnivore":
+                outcomes += 4
+            else:
+                outcomes += 2
+
+    def animal_die(self, species, name):
+        for animal in self.animalsCollection:
+            if animal.species == species and animal.name == name:
+                self.animalsCollection.remove(animal)
+                break
+
+    def simulate(interval_of_time, period):
+        pass

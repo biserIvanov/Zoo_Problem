@@ -2,6 +2,7 @@ import json
 
 from animal import Animal
 
+
 class Zoo:
 
     def __init__(self, capacity, budget):

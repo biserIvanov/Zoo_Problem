@@ -7,7 +7,8 @@
         "gestation period": 9,
         "newborn weight in kilos": 3,
         "weight/age ratio": 6,
-        "food/weight ratio": 0.3
+        "food/weight ratio": 0.3,
+        "average weight": 100
          
     },
     {
@@ -17,7 +18,8 @@
         "gestation period": 7,
         "newborn weight in kilos": 5,
         "weight/age ratio": 5,
-        "food/weight ratio": 0.5
+        "food/weight ratio": 0.5,
+        "average weight": 120
     },
     {
         "species": "zebra",
@@ -26,7 +28,8 @@
         "gestation period": 12,
         "newborn weight in kilos": 2,
         "weight/age ratio": 7,
-        "food/weight ratio": 0.3
+        "food/weight ratio": 0.3,
+        "average weight": 80
     }
     
 ]

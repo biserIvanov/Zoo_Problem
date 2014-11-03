@@ -1,0 +1,32 @@
+[
+
+    {
+        "species": "lion",
+        "life_expenctancy": 15,
+        "food type": "carnivore",
+        "gestation period": 9,
+        "newborn weight in kilos": 3,
+        "weight/age ratio": 6,
+        "food/weight ratio": 0.3
+         
+    },
+    {
+        "species": "tiger",
+        "life_expenctancy": 20,
+        "food type": "carnivore",
+        "gestation period": 7,
+        "newborn weight in kilos": 5,
+        "weight/age ratio": 5,
+        "food/weight ratio": 0.5
+    },
+    {
+        "species": "zebra",
+        "life_expenctancy": 10,
+        "food type": "herbivore",
+        "gestation period": 12,
+        "newborn weight in kilos": 2,
+        "weight/age ratio": 7,
+        "food/weight ratio": 0.3
+    }
+    
+]

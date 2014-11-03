@@ -1,4 +1,6 @@
-from zoo import Settings
+from main import load_settings
+import random
+
 
 class Animal():
     def __init__(self, species, age, name, gender, weight):
@@ -9,13 +11,17 @@ class Animal():
         self.weight = weight
 
     def eat(self):
-        food_to_eat = self.FoodWeightRatio * self.weight
-        self.weight += food_to_eat
+        pass
 
-    def grow(self, monthly_weight):
-        while self.weight / self.age <= self.WeightAgeRatio:
-            self.weight += monthly_weight
+    def grow(self):
+        for animal in load_settings():
+            if animal['species'] == self.species:
+                while self.weight <= animal['average_weight']:
+                    self.weight += animal['food/weight ratio'] * self.weight
 
     def die(self, life_expectancy):
         chance_of_dying = self.age / life_expectancy
-        return chance_of_dying
+        for i in range(100):
+            if random.random() >= chance_of_dying:
+                return True
+        return False

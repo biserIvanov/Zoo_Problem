@@ -1,13 +1,8 @@
 import json
 
 
-class Animal():
-    def __init__(self, species, age, name, gender, weight):
-        self.species = species
-        self.age = age
-        self.name = name
-        self. gender = gender
-        self.weight = weight
+class Load():
+    def __init__(self):
         f = open("database.json", "r")
         data = f.read()
         jsondata = json.loads(data)
@@ -20,6 +15,15 @@ class Animal():
                 self.newborn_weight_kilos = animal['newborn weight in kilos']
                 self.FoodWeightRatio = animal['food/weight ratio']
                 self.WeightAgeRatio = animal['weight/age ratio']
+
+
+class Animal():
+    def __init__(self, species, age, name, gender, weight):
+        self.species = species
+        self.age = age
+        self.name = name
+        self. gender = gender
+        self.weight = weight
 
     def eat(self):
             food_to_eat = self.FoodWeightRatio * self.weight

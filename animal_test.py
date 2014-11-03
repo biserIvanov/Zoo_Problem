@@ -10,7 +10,7 @@ class AnimalTest(unittest.TestCase):
         self.assertEqual(self.dog.name, "Felix")
         self.assertEqual(self.dog.weight, 30)
 
-    def test_grow(self):
+    #def test_grow(self):
         self.dog.grow(10, 5)
         self.assertEqual(self.dog.weight, 40)
         self.assertEqual(self.dog.age, 10)

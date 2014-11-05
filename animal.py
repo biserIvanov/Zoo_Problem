@@ -1,5 +1,12 @@
-from main import load_settings
 import random
+import json
+
+
+def load_settings(file_name):
+        f = open(file_name, "r")
+        data = f.read()
+        f.close()
+        return json.loads(data)
 
 
 class Animal:
@@ -12,10 +19,20 @@ class Animal:
         self.weight = weight
 
     def eat(self):
-        pass
+        for animal in load_settings("database.json"):
+            if animal['species'] == self.species:
+                return animal['food/weight ratio'] * self.weight
+
+    def feed_animal(self):
+        for animal in load_settings("database.json"):
+            if animal['species'] == self.species:
+                if animal['food type'] == "carnivore":
+                    return animal['food/weight ratio'] * self.weight * 4
+                elif animal['food type'] == "herbivore":
+                    return animal['food/weight ratio'] * self.weight * 2
 
     def grow(self):
-        for animal in load_settings():
+        for animal in load_settings("database.json"):
             if animal['species'] == self.species:
                 while self.weight <= animal['average_weight']:
                     self.weight += animal['food/weight ratio'] * self.weight
@@ -26,3 +43,4 @@ class Animal:
             if random.random() >= chance_of_dying:
                 return True
         return False
+

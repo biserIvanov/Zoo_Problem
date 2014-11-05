@@ -1,4 +1,4 @@
-import random
+from random import randrange
 import json
 
 
@@ -34,15 +34,15 @@ class Animal:
     def grow(self):
         for animal in load_settings("database.json"):
             if animal['species'] == self.species:
-                while self.weight <= animal['average_weight']:
-                    self.weight += animal['food/weight ratio'] * self.weight
+                self.weight += animal['food/weight ratio'] * self.weight
+                if self.weight < animal['average weight']:
+                    return False
+                return True
 
     def die(self):
         for animal in load_settings("database.json"):
             if animal['species'] == self.species:
                 chance_of_dying = self.age / animal['life_expectancy']
-            for i in range(100):
-                if random.random() >= chance_of_dying:
+                if randrange(1, 10) <= chance_of_dying * 10:
                     return True
-            return False
-
+                return False

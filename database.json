@@ -2,18 +2,18 @@
 
     {
         "species": "Lion",
-        "life_expectancy": 15,
+        "life_expectancy": 21,
         "food type": "carnivore",
         "gestation period": 9,
         "newborn weight in kilos": 3,
         "weight/age ratio": 6,
         "food/weight ratio": 0.3,
-        "average weight": 100
+        "average weight": 150
 
     },
     {
         "species": "Tiger",
-        "life_expectancy": 20,
+        "life_expectancy": 30,
         "food type": "carnivore",
         "gestation period": 7,
         "newborn weight in kilos": 5,
@@ -23,13 +23,13 @@
     },
     {
         "species": "Zebra",
-        "life_expectancy": 10,
+        "life_expectancy": 20,
         "food type": "herbivore",
         "gestation period": 12,
         "newborn weight in kilos": 2,
         "weight/age ratio": 7,
         "food/weight ratio": 0.3,
-        "average weight": 80
+        "average weight": 150
     }
 
 ]

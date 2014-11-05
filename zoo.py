@@ -13,7 +13,7 @@ class Zoo:
 
     def see_animals(self):
         for animal in self.animalsCollection:
-            print(animal.name + " : " + animal.species + ", " + str(animal.age) + ", " + str(animal.weight))
+            return (animal.name + " : " + animal.species + ", " + str(animal.age) + ", " + str(animal.weight))
 
     def move_to_habitat(self, species, name):
         for animal in self.animalsCollection:
@@ -49,27 +49,12 @@ class Zoo:
         for animal in self.animalsCollection:
             for i in range(1, len(self.animalsCollection)):
                 if animal.species == self.animalsCollection[i].species and animal.gender != self.animalsCollection[i].gender:
-                    if animal in self.animalsAfterGestationPeriod or self.animalsCollection[i] in self.animalsAfterGestationPeriod:
-                        continue
-                    for dictionary in load_settings("database.json"):
-                        if dictionary['species'] == animal.species:
-                            if animal.weight < dictionary['average weight'] or self.animalsCollection[i].weight < dictionary['average weight']:
-                                continue
-                            if month >= dictionary['gestation period']:
-                                gender = ''
-                                a = randrange(100)
-                                if a <= 50:
-                                    gender = "male"
-                                else:
-                                    gender = "female"
-                                print(gender)
-                                self.accommodate(animal.species, 0, "Child of " + animal.name, gender, dictionary['newborn weight in kilos'])
-                                if(animal.gender == "female"):
-                                    self.animalsAfterGestationPeriod.append(animal)
-                                else:
-                                    self.animalsAfterGestationPeriod.append(self.animalsCollection[i])
-        #print(self.animalsAfterGestationPeriod[0].name)
-
+                    for diction in load_settings("database.json"):
+                        if diction['species'] == animal.species:
+                            if month >= diction['gestation period']:
+                                return True
+                            else:
+                                return False
 
     def animal_die(self, species, name):
         for animal in self.animalsCollection:
@@ -77,5 +62,29 @@ class Zoo:
                 self.animalsCollection.remove(animal)
                 break
 
-    def simulate(interval_of_time, period):
-        pass
+    def simulate(self, interval_of_time, period):
+        self.interval = 0
+        if interval_of_time == "months":
+            self.interval = period
+        elif interval_of_time == "days":
+            self.interval = period / 30
+        elif interval_of_time == "years":
+            self.interval = period * 12
+        else:
+            print("invalid input")
+        #print(self.see_animals())
+        for i in range(self.interval):
+            for each in self.animalsCollection:
+                while each.grow() is False:
+                    print("the animal is still growing")
+
+                if each.die() is True:
+                    print("There is an animal, which has died")
+                    self.animal_die(each.species, each.name)
+        print("the animals have grown")
+        if self.budget + self.dayly_incomes() - self.dayly_outcomes() > 0:
+            print("the zoo does have enough budget to pay for the food")
+        if self.born_animal(self.interval) is True:
+            print("an animal is going to be born")
+        else:
+            print("no animal is going to be born")

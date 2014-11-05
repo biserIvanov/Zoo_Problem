@@ -37,10 +37,14 @@ class Animal:
                 while self.weight <= animal['average_weight']:
                     self.weight += animal['food/weight ratio'] * self.weight
 
-    def die(self, life_expectancy):
-        chance_of_dying = self.age / life_expectancy
-        for i in range(100):
-            if random.random() >= chance_of_dying:
-                return True
-        return False
+    def die(self):
+        for animal in load_settings("database.json"):
+            if animal['species'] == self.species:
+                chance_of_dying = self.age / animal['life_expectancy']
+            for i in range(100):
+                if random.random() >= chance_of_dying:
+                    return True
+            return False
 
+animal = Animal("Lion", 9, "Ivan", "male", 140)
+print(animal.die())

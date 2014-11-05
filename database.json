@@ -2,7 +2,7 @@
 
     {
         "species": "Lion",
-        "life_expenctancy": 15,
+        "life_expectancy": 15,
         "food type": "carnivore",
         "gestation period": 9,
         "newborn weight in kilos": 3,
@@ -13,7 +13,7 @@
     },
     {
         "species": "Tiger",
-        "life_expenctancy": 20,
+        "life_expectancy": 20,
         "food type": "carnivore",
         "gestation period": 7,
         "newborn weight in kilos": 5,
@@ -23,7 +23,7 @@
     },
     {
         "species": "Zebra",
-        "life_expenctancy": 10,
+        "life_expectancy": 10,
         "food type": "herbivore",
         "gestation period": 12,
         "newborn weight in kilos": 2,

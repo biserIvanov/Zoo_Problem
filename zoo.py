@@ -1,5 +1,6 @@
 from animal import *
 from main import *
+from random import randrange
 
 
 class Zoo:
@@ -8,6 +9,7 @@ class Zoo:
         self.animalsCollection = []
         self.capacity = capacity
         self.budget = budget
+        self.animalsAfterGestationPeriod = []
 
     def see_animals(self):
         for animal in self.animalsCollection:
@@ -42,6 +44,32 @@ class Zoo:
             else:
                 outcomes += 2
         return outcomes
+
+    def born_animal(self, month):
+        for animal in self.animalsCollection:
+            for i in range(1, len(self.animalsCollection)):
+                if animal.species == self.animalsCollection[i].species and animal.gender != self.animalsCollection[i].gender:
+                    if animal in self.animalsAfterGestationPeriod or self.animalsCollection[i] in self.animalsAfterGestationPeriod:
+                        continue
+                    for dictionary in load_settings("database.json"):
+                        if dictionary['species'] == animal.species:
+                            if animal.weight < dictionary['average weight'] or self.animalsCollection[i].weight < dictionary['average weight']:
+                                continue
+                            if month >= dictionary['gestation period']:
+                                gender = ''
+                                a = randrange(100)
+                                if a <= 50:
+                                    gender = "male"
+                                else:
+                                    gender = "female"
+                                print(gender)
+                                self.accommodate(animal.species, 0, "Child of " + animal.name, gender, dictionary['newborn weight in kilos'])
+                                if(animal.gender == "female"):
+                                    self.animalsAfterGestationPeriod.append(animal)
+                                else:
+                                    self.animalsAfterGestationPeriod.append(self.animalsCollection[i])
+        #print(self.animalsAfterGestationPeriod[0].name)
+
 
     def animal_die(self, species, name):
         for animal in self.animalsCollection:

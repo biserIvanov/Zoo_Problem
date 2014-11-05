@@ -46,5 +46,3 @@ class Animal:
                     return True
             return False
 
-animal = Animal("Lion", 9, "Ivan", "male", 140)
-print(animal.die())
